@@ -7,6 +7,10 @@ android {
     namespace = "com.example.devatnacatoyu"
     compileSdk = 36
 
+    buildFeatures{
+        viewBinding=true
+    }
+
     defaultConfig {
         applicationId = "com.example.devatnacatoyu"
         minSdk = 24
