@@ -1,21 +1,27 @@
 package com.example.devatnacatoyu
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.devatnacatoyu.databinding.ActivitySecondBinding
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.devatnacatoyu.databinding.FragmentCalculatorBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 
-class SecondActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySecondBinding
+class CalculatorFragment : Fragment() {
 
+    private var binding: FragmentCalculatorBinding? = null
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentCalculatorBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySecondBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
-        with(binding) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding?.apply {
             bSqrt.setOnClickListener {
                 operation.append("sqrt(")
             }
